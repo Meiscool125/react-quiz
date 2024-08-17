@@ -4,7 +4,9 @@ import { fetchQuizQuestions } from './API';
 
 import { QuestionState, Difficulty } from './API';
 
-import { GlobalStyle } from './App.styles';
+import { GlobalStyle, Wrapper } from './App.styles';
+
+
 export type AnswerObject = {
   question: string;
   answer: string;
@@ -64,8 +66,9 @@ const App = () => {
   return (
   <>
     <GlobalStyle />
+    <Wrapper>
       <div className='App'>
-        <h1>REACT QUIZ</h1>
+        <h1>VIDEO GAME QUIZ</h1>
 
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ?(<button className='start' onClick={startTrivia}>Start</button>) : null}
         {!gameOver ? <p className='score'>Score: {score}</p> : null}
@@ -83,8 +86,8 @@ const App = () => {
         {!gameOver && !loading && userAnswers.length === number + 1 && number !== TOTAL_QUESTIONS - 1 ?(
           <button className='next' onClick={nextQuestion}>Next question</button>
         ) : null}
-        
-      </div>
+        </div>
+      </Wrapper>
   </>
 )
 }
